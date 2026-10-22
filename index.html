@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a090d">
+  <title>HOTEL 404 — A Departure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="final-overrides.css">
+</head>
+<body data-act="1">
+  <div class="noise"></div>
+
+  <!-- ===== GLOBAL NEON HALLOWEEN DECORATIONS ===== -->
+  <div class="neon-deco" aria-hidden="true">
+    <span class="neon-drip d1"></span>
+    <span class="neon-drip d2"></span>
+    <span class="neon-drip d3"></span>
+    <span class="neon-drip d4"></span>
+    <span class="neon-drip d5"></span>
+    <span class="neon-drip d6"></span>
+  </div>
+  <div class="neon-bat-deco" aria-hidden="true">
+    <span class="nb nb1"></span>
+    <span class="nb nb2"></span>
+    <span class="nb nb3"></span>
+  </div>
+  <div class="floating-skulls" aria-hidden="true">
+    <span class="fsk fsk1"></span>
+    <span class="fsk fsk2"></span>
+  </div>
+  <div class="neon-web-deco web-deco-left" aria-hidden="true"></div>
+  <div class="neon-web-deco web-deco-right" aria-hidden="true"></div>
+
+  <div class="halloween-sky" aria-hidden="true">
+    <span class="moon"></span>
+    <span class="moon-crater c1"></span>
+    <span class="moon-crater c2"></span>
+    <span class="moon-crater c3"></span>
+    <span class="bat bat-one"></span>
+    <span class="bat bat-two"></span>
+    <span class="bat bat-three"></span>
+    <span class="bat bat-four"></span>
+    <span class="dead-tree tree-left"></span>
+    <span class="dead-tree tree-right"></span>
+    <span class="raven raven-one"></span>
+    <span class="raven raven-two"></span>
+  </div>
+  <div class="cobweb web-left" aria-hidden="true"></div>
+  <div class="cobweb web-right" aria-hidden="true"></div>
+  <div class="dead-branch branch-left" aria-hidden="true"></div>
+  <div class="dead-branch branch-right" aria-hidden="true"></div>
+  <div class="lightning" aria-hidden="true"></div>
+
+  <main class="game-shell">
+    <header>
+      <a class="brand" href="./">HOTEL<span>404</span></a>
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="zh-Hant">繁中</button>
+          <button class="lang-btn" data-lang="zh-Hans">简中</button>
+        </div>
+        <button id="soundBtn" class="icon-btn" aria-label="Toggle sound">SOUND: ON</button>
+        <button id="restartBtn" class="icon-btn hidden" aria-label="Restart game">RESTART</button>
+      </div>
+    </header>
+
+    <!-- ========== COVER / START SCREEN ========== -->
+    <section id="startScreen" class="screen start-screen active">
+      <div class="scene-bg" aria-hidden="true">
+        <div class="graveyard">
+          <i class="tomb ts1"></i><i class="tomb ts2"></i><i class="tomb ts3"></i>
+          <i class="tomb ts4"></i><i class="tomb ts5"></i><i class="tomb ts6"></i>
+        </div>
+        <div class="iron-fence"></div>
+        <div class="iron-fence-gate"></div>
+        <div class="hanging-spider"><i></i></div>
+        <div class="hanging-spider sp2"><i></i></div>
+        <div class="ground-mist mist-one"></div>
+        <div class="ground-mist mist-two"></div>
+        <div class="ground-mist mist-three"></div>
+        <div class="jack-lantern jl-main">
+          <i class="pumpkin-eye left"></i><i class="pumpkin-eye right"></i><i class="pumpkin-mouth"></i>
+        </div>
+        <div class="jack-lantern jl-small">
+          <i class="pumpkin-eye left"></i><i class="pumpkin-eye right"></i><i class="pumpkin-mouth"></i>
+        </div>
+        <div class="jack-lantern jl-tiny">
+          <i class="pumpkin-eye left"></i><i class="pumpkin-eye right"></i><i class="pumpkin-mouth"></i>
+        </div>
+        <div class="neon-sign">HOTEL 404</div>
+        <div class="neon-ghost"></div>
+        <div class="neon-skull"></div>
+        <div class="neon-spider"></div>
+        <div class="moon-glow"></div>
+        <div class="window-ghost"></div>
+        <div class="dead-tree-silhouette"></div>
+        <div class="watermark-404">404</div>
+
+        <!-- right-hand feature wall: the door you cannot open -->
+        <div class="cover-wall">
+          <div class="cover-key"><i></i></div>
+          <div class="cover-door">
+            <span class="door-plate">404</span>
+            <span class="door-peep"></span>
+            <span class="door-handle"></span>
+            <span class="door-gap"></span>
+            <span class="dnd-tag">DO NOT<br>DISTURB</span>
+          </div>
+          <div class="cover-bell"><i></i></div>
+          <span class="cover-bat cb1"></span>
+          <span class="cover-bat cb2"></span>
+          <span class="cover-bat cb3"></span>
+          <div class="cover-web"></div>
+        </div>
+      </div>
+      <div class="eyebrow" id="coverEyebrow">AN ESCAPE GAME IN THREE ACTS</div>
+      <h1>HOTEL<br>404.<br><em>NO EXIT.</em></h1>
+
+      <p class="cover-tagline" id="coverTagline">You are locked in Room 404. The only way out is a signature.</p>
+
+      <div class="start-buttons">
+        <button id="startBtn" class="primary-btn">RING THE BELL <span>&rarr;</span></button>
+      </div>
+
+      <div class="ledger-strip">
+        <span class="ledger-label">DEPARTURES RECORDED</span>
+        <div class="ledger-slots" id="ledgerSlots"></div>
+        <span class="ledger-count" id="startLedgerCount">0 / 6</span>
+      </div>
+
+      <p class="tiny">Headphones recommended &middot; Every choice is assessed</p>
+    </section>
+
+    <!-- ========== BRIEFING SCREEN (page 2) — story + rules, one page ========== -->
+    <section id="briefScreen" class="screen story-screen brief-screen">
+      <div class="story-bg" aria-hidden="true">
+        <div class="graveyard"><i class="tomb ts2"></i><i class="tomb ts4"></i><i class="tomb ts6"></i></div>
+        <div class="ground-mist mist-one"></div>
+        <div class="ground-mist mist-three"></div>
+        <span class="neon-drip d2"></span>
+        <span class="neon-drip d4"></span>
+        <div class="neon-ghost ng-story"></div>
+        <div class="neon-skull ns-story"></div>
+      </div>
+      <div class="story-deco" aria-hidden="true">
+        <span class="story-tube st-left"></span>
+        <span class="story-tube st-right"></span>
+        <div class="story-web-corner"></div>
+        <span class="cover-bat sb1"></span>
+        <span class="cover-bat sb2"></span>
+        <span class="story-spark ss1"></span>
+        <span class="story-spark ss2"></span>
+        <span class="story-spark ss3"></span>
+      </div>
+
+      <div class="brief-content">
+        <div class="brief-cols">
+          <!-- left: the story -->
+          <div class="story-panel brief-story">
+            <span class="panel-corner pc1"></span>
+            <span class="panel-corner pc2"></span>
+            <span class="panel-corner pc3"></span>
+            <span class="panel-corner pc4"></span>
+
+            <div class="story-eyebrow" id="briefEyebrow">THE NIGHT YOU CHECKED IN</div>
+            <h2 class="story-title" id="briefTitle">HOW YOU GOT HERE</h2>
+
+            <div class="premise">
+              <p id="premise1"><strong>You are locked in Room 404.</strong> The door does not open, and the hotel does not mean to let you leave.</p>
+              <p id="premise2"><strong>Your roommate decides.</strong> Mr. Smiles is the night concierge &mdash; and he shares this room with you. Every checkout needs his signature, and he only signs for a guest he is pleased with.</p>
+              <p id="premise3"><strong>So keep him happy.</strong> His rating is the lock on your door. Raise it and he signs you out at dawn. Drop it and you stay.</p>
+              <p class="premise-hook" id="premise4">You checked in eleven months ago &mdash; the week your brother <strong>Peter</strong> vanished here. You remember none of it. Peter is still here. So are you.</p>
+            </div>
+          </div>
+
+          <!-- right: the rules -->
+          <div class="brief-rules">
+            <div class="rules-head">
+              <span class="rules-eyebrow" id="rulesEyebrow">GUEST INFORMATION CARD</span>
+              <h3 class="rules-title" id="rulesTitle">HOUSE RULES</h3>
+            </div>
+
+            <div class="rule-hero">
+              <span class="rule-hero-label" id="ruleHeroLabel">THE RULE</span>
+              <p class="rule-hero-text" id="ruleHeroText">Keep the guest happy &mdash; that&rsquo;s Mr. Smiles. He signs your checkout.</p>
+            </div>
+
+            <div class="goal-line">
+              <span class="goal-label" id="goalLabel">YOUR GOAL</span>
+              <p class="goal-text" id="goalText">Get his rating to <strong>PLEASED</strong>, then reach the front desk at dawn.</p>
+            </div>
+
+            <div class="rule-cards">
+              <div class="rule-card">
+                <div class="rule-icon" aria-hidden="true">&#9758;</div>
+                <h4 id="rc1t">READ THE ASSESSMENT</h4>
+                <div class="rule-body" id="rc1b">Every option carries a stamp. A <em>rule-break</em> ends your stay.<span class="stamp-row"><span class="badge-demo safe">SAFE</span><span class="badge-demo risky">RISKY</span><span class="badge-demo danger">DANGER</span><span class="badge-demo rulebreak">RULE-BREAK</span></span></div>
+              </div>
+              <div class="rule-card">
+                <div class="rule-icon" aria-hidden="true">&#9774;</div>
+                <h4 id="rc2t">WATCH HIS RATING</h4>
+                <div class="rule-body" id="rc2b"><em>Pleased</em> means he signs. <em>Furious</em> means he keeps you.</div>
+              </div>
+              <div class="rule-card">
+                <div class="rule-icon" aria-hidden="true">&#9874;</div>
+                <h4 id="rc3t">LOG YOUR PROPERTY</h4>
+                <div class="rule-body" id="rc3b">Four items, one job each: photo, half-key, candle, bell.</div>
+              </div>
+              <div class="rule-card">
+                <div class="rule-icon" aria-hidden="true">&#9763;</div>
+                <h4 id="rc4t">FILE A DEPARTURE</h4>
+                <div class="rule-body" id="rc4b">Six ways out. None is a failure &mdash; the ledger counts them all.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brief-buttons">
+          <button id="briefBackBtn" class="secondary-btn" data-arrow="left">BACK</button>
+          <button id="briefStartBtn" class="primary-btn">ENTER HOTEL 404 <span>&rarr;</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== STORY INTRO SPLASH ========== -->
+    <div id="introSplash" class="intro-splash">
+      <div class="splash-bg"></div>
+      <div class="splash-404" aria-hidden="true">404</div>
+      <div class="splash-content">
+        <div class="splash-icon">&#9758;</div>
+        <div class="splash-eyebrow" id="splashEyebrow">REMEMBER</div>
+        <p class="splash-reminder" id="splashReminder">Make <strong>Mr. Smiles</strong> happy &mdash; so you can escape.</p>
+        <div class="splash-bar"><span></span></div>
+        <div class="splash-text" id="splashText">CHECKING IN&hellip;</div>
+      </div>
+    </div>
+
+    <!-- ========== GAME SCREEN ========== -->
+    <section id="gameScreen" class="screen game-screen">
+      <div class="game-deco" aria-hidden="true">
+        <span class="neon-drip d1"></span>
+        <span class="neon-drip d4"></span>
+        <div class="neon-web-corner nwc-left"></div>
+        <div class="neon-web-corner nwc-right"></div>
+      </div>
+
+      <div class="story-panel">
+        <div id="ruleBanner" class="rule-banner">
+          <span class="rule-icon">&#9888;</span>
+          <span id="ruleText">KEEP THE GUEST HAPPY &mdash; that&rsquo;s Mr. Smiles. He signs your checkout.</span>
+        </div>
+
+        <div class="scene-meta">
+          <span id="chapter">ACT I / CHECK IN</span>
+          <span id="time">03:33</span>
+        </div>
+        <div id="sceneIcon" class="scene-icon">&#9678;</div>
+        <h2 id="sceneTitle">The Wake-Up Call</h2>
+        <div id="storyText" class="story-text"></div>
+        <div id="choices" class="choices"></div>
+      </div>
+
+      <aside class="demon-panel">
+        <div class="demon-card">
+          <div class="demon-label">GUEST SATISFACTION &mdash; MR. SMILES</div>
+          <div id="demonFace" class="demon-face" aria-label="A watching concierge">
+            <div class="horn left"></div><div class="horn right"></div>
+            <div class="eye left"></div><div class="eye right"></div>
+            <div class="mouth"></div>
+          </div>
+          <div class="mood-row"><span id="moodName">NEUTRAL</span><span id="moodValue">50%</span></div>
+          <div class="meter"><div id="moodBar" class="meter-fill"></div></div>
+          <div id="moodDelta" class="mood-delta" aria-live="polite"></div>
+          <p id="demonQuote" class="demon-quote">&ldquo;He is waiting to be impressed.&rdquo;</p>
+        </div>
+
+        <div class="inventory">
+          <div class="side-title">PROPERTY LOG</div>
+          <div id="items" class="items"><span class="empty">Nothing. Not even a phone.</span></div>
+        </div>
+
+        <div class="progress-wrap">
+          <span>WAY OUT?</span><span id="progressText">0%</span>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ========== REPORT SCREEN (departure / incident) ========== -->
+    <section id="resultScreen" class="screen result-screen">
+      <div class="result-deco" aria-hidden="true">
+        <span class="neon-drip d1"></span>
+        <span class="neon-drip d2"></span>
+        <span class="neon-drip d3"></span>
+        <span class="neon-drip d4"></span>
+        <span class="neon-drip d5"></span>
+        <span class="neon-drip d6"></span>
+        <div class="neon-skull ns-result"></div>
+      </div>
+
+      <div class="report-card">
+        <div class="report-head">
+          <span id="reportKind">DEPARTURE RECORD</span>
+          <span id="reportRef">404 &middot; 06:04</span>
+        </div>
+
+        <div id="resultIcon" class="result-icon">&#10022;</div>
+        <h2 id="resultStatus">ESCAPED</h2>
+        <p id="resultHint">The front doors opened.</p>
+
+        <div class="report-fields">
+          <div class="rf">
+            <span class="rf-label" id="rfCauseLabel">CAUSE OF DEPARTURE</span>
+            <p id="rfCause">&mdash;</p>
+          </div>
+          <div class="rf">
+            <span class="rf-label" id="rfFiledLabel">FILED BY</span>
+            <p id="rfFiled">&mdash;</p>
+          </div>
+          <div class="rf rf-advice">
+            <span class="rf-label" id="rfAdviceLabel">WHAT YOU COULD HAVE DONE</span>
+            <p id="rfAdvice">&mdash;</p>
+          </div>
+        </div>
+
+        <div class="report-foot">
+          <span id="tierStamp" class="tier-stamp">&#129351; GOLD DEPARTURE</span>
+          <span id="ledgerCount" class="ledger-count-sm">DEPARTURE RECORDED &mdash; 1/6</span>
+        </div>
+
+        <button id="viewEndingBtn" class="primary-btn">VIEW RECORD <span>&rarr;</span></button>
+      </div>
+    </section>
+
+    <!-- ========== END SCREEN ========== -->
+    <section id="endScreen" class="screen end-screen">
+      <div class="end-deco" aria-hidden="true">
+        <span class="neon-drip d1"></span>
+        <span class="neon-drip d3"></span>
+        <span class="neon-drip d5"></span>
+        <div class="neon-ghost ng-end"></div>
+        <div class="neon-skull ns-end"></div>
+      </div>
+      <div class="result-ornament end-ornament" aria-hidden="true"><i></i><span></span><i></i></div>
+      <div id="endStamp" class="end-stamp">DEPARTURE 1</div>
+      <div id="endIcon" class="end-icon">&#10022;</div>
+      <h2 id="endTitle">CHECK OUT ALONE</h2>
+      <p id="endText"></p>
+      <div id="endStats" class="end-stats"></div>
+      <div id="endBadges" class="end-badges"></div>
+      <button id="againBtn" class="primary-btn">CHECK IN AGAIN <span>&#8635;</span></button>
+      <p class="tiny">Six departures. One guest. The ledger remembers all of them.</p>
+    </section>
+  </main>
+
+  <!-- ========== TOASTS ========== -->
+  <div id="toasts" class="toast-container" aria-live="polite"></div>
+
+  <div id="flash" class="flash"></div>
+  <script src="i18n.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

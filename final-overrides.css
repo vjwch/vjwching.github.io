@@ -1,0 +1,902 @@
+/* === Final overrides: homepage visibility + furious state details === */
+
+/* Homepage scenery sits above the black background */
+.start-screen { isolation: isolate; }
+.scene-bg { z-index: 0; }
+.start-screen .graveyard { z-index: 2 !important; opacity: .92 !important; }
+.start-screen .graveyard .tomb {
+  border-color: #8e688a !important;
+  background: linear-gradient(180deg, #251b29, #110e15) !important;
+  box-shadow: 0 0 12px rgba(255,138,31,.08);
+}
+.start-screen .tomb::before { opacity: .85 !important; }
+.start-screen .iron-fence { z-index: 1 !important; opacity: .58 !important; filter: drop-shadow(0 0 4px rgba(255,138,31,.18)); }
+.start-screen .ground-mist { z-index: 3 !important; opacity: .9 !important; pointer-events: none; }
+.start-screen .mist-two { opacity: .65 !important; }
+.start-screen .mist-three { opacity: .4 !important; }
+.start-screen .hanging-spider { z-index: 4 !important; opacity: 1 !important; }
+.start-screen .hanging-spider::after {
+  background: #4b354f !important;
+  box-shadow: 0 0 0 1px #b17cac, 0 0 12px rgba(255,138,31,.16) !important;
+}
+.start-screen .jack-lantern { z-index: 4 !important; bottom: 18% !important; }
+.start-screen .window-ghost { z-index: 2 !important; }
+.start-screen .dead-tree-silhouette { z-index: 1 !important; }
+.start-screen .moon-glow { z-index: -1 !important; }
+
+/* Furious state — attack-ready brows, hostile eyes, clenched teeth */
+.demon-face.furious .eye {
+  top: 91px !important; width: 34px !important; height: 7px !important;
+  border-radius: 0 60% 10% 40% !important; background: #ff3d18 !important;
+  box-shadow: 0 0 20px #ff3d18 !important;
+}
+.demon-face.furious .eye.left { left: 33px !important; transform: rotate(22deg) !important; }
+.demon-face.furious .eye.right { right: 33px !important; transform: scaleX(-1) rotate(22deg) !important; }
+.demon-face.furious .eye::before {
+  content: ''; position: absolute; left: -2px; top: -10px; width: 39px; height: 5px;
+  background: #ff612e; box-shadow: 0 0 8px #ff3d18;
+}
+.demon-face.furious .eye.left::before, .demon-face.furious .eye.right::before { transform: rotate(18deg); }
+.demon-face.furious .eye::after { display: none !important; }
+.demon-face.furious .mouth {
+  top: 86px !important; width: 62px !important; height: 31px !important;
+  border: 3px solid #ff3d18 !important; border-radius: 8px 8px 3px 3px !important;
+  background: repeating-linear-gradient(90deg, #eee8db 0 8px, #ff3d18 9px 11px) !important;
+  box-shadow: 0 0 15px rgba(255,61,24,.55) !important;
+}
+.demon-face.furious .mouth::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 12px; height: 3px; background: #ff3d18;
+}
+.demon-face.furious .mouth::after {
+  content: ''; position: absolute; left: -10px; right: -10px; bottom: -8px;
+  height: 3px; background: #ff3d18; transform: rotate(-2deg);
+}
+
+/* Mobile furious state */
+@media (max-width: 780px) {
+  .demon-face.furious .eye { top: 63px !important; width: 25px !important; }
+  .demon-face.furious .eye.left { left: 34px !important; }
+  .demon-face.furious .eye.right { right: 34px !important; }
+  .demon-face.furious .eye::before { width: 28px; }
+  .demon-face.furious .mouth { top: 62px !important; width: 47px !important; height: 25px !important; }
+  .demon-face.furious .mouth::before { top: 9px; }
+}
+
+/* How-to screen background visibility */
+.howto-screen { isolation: isolate; }
+.howto-bg .graveyard { z-index: 1 !important; opacity: .4 !important; }
+.howto-bg .ground-mist { z-index: 2 !important; }
+.howto-content { z-index: 5 !important; }
+.howto-bg .neon-drip { z-index: 1 !important; }
+.howto-bg .neon-ghost { z-index: 2 !important; }
+.howto-bg .nb { z-index: 2 !important; }
+
+/* Game screen deco layering */
+.game-deco .neon-drip { z-index: 0 !important; }
+.game-deco .neon-web-corner { z-index: 0 !important; }
+
+/* Result/End screen deco layering */
+.result-deco .neon-drip { z-index: 0 !important; }
+.result-deco .neon-skull { z-index: 0 !important; }
+.end-deco .neon-drip { z-index: 0 !important; }
+.end-deco .neon-ghost { z-index: 0 !important; }
+.end-deco .neon-skull { z-index: 0 !important; }
+
+/* Neon sign z-index */
+.start-screen .neon-sign { z-index: 3 !important; }
+.start-screen .neon-ghost { z-index: 2 !important; }
+.start-screen .neon-skull { z-index: 2 !important; }
+.start-screen .neon-spider { z-index: 3 !important; }
+.start-screen .jl-small { z-index: 4 !important; }
+.start-screen .jl-tiny { z-index: 4 !important; }
+
+/* ============================================================
+   V3 — COVER PREMISE + HOW-TO GOAL
+   Makes the escape premise explicit before the player starts.
+   ============================================================ */
+
+.premise {
+  position: relative; z-index: 5;
+  max-width: 620px;
+  margin: 26px 0 32px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 69, 58, .55);
+  text-align: left;
+}
+.premise p {
+  color: var(--dim);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 13px;
+}
+.premise p:last-child { margin-bottom: 0; }
+.premise strong { color: var(--ink); font-weight: 500; }
+.premise-hook {
+  margin-top: 18px !important;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(255, 255, 255, .13);
+  color: rgba(233, 229, 221, .58) !important;
+  font-size: 13px !important;
+}
+.premise-hook strong { color: var(--red); font-weight: 700; letter-spacing: .04em; }
+
+/* Goal strip under the rule hero */
+.howto-goal {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  width: min(760px, 100%);
+  margin: 0 auto 30px;
+  padding: 13px 18px;
+  border: 1px solid rgba(215, 255, 63, .3);
+  background: rgba(215, 255, 63, .05);
+  position: relative; z-index: 5;
+}
+.goal-label {
+  font: 700 10px 'Unbounded', sans-serif;
+  letter-spacing: .16em;
+  color: var(--acid);
+  white-space: nowrap;
+}
+.goal-text {
+  font-size: 13px; line-height: 1.65; color: rgba(233, 229, 221, .78);
+}
+.goal-text strong { color: var(--acid); }
+
+@media (max-width: 780px) {
+  .premise { max-width: 100%; padding-left: 15px; margin: 22px 0 26px; }
+  .premise p { font-size: 13px; line-height: 1.72; }
+  .premise-hook { font-size: 12px !important; }
+  .howto-goal { gap: 8px; padding: 12px 14px; }
+  .goal-text { font-size: 12px; }
+}
+
+/* Cover is taller now (premise block) — tighten so the CTA stays above the fold */
+.start-screen { padding: 40px 0 48px; }
+.start-screen h1 { font-size: clamp(40px, 6.1vw, 78px); }
+.start-screen > .eyebrow { margin-bottom: 16px; }
+.start-screen .premise { margin: 20px 0 24px; }
+.start-screen .premise p { font-size: 13.5px; line-height: 1.68; margin-bottom: 10px; }
+.start-screen .premise-hook { margin-top: 13px !important; padding-top: 12px; font-size: 12.5px !important; }
+.start-screen .ledger-strip { margin-top: 26px; }
+.start-screen .tiny { margin-top: 12px; }
+
+@media (max-height: 780px) and (min-width: 781px) {
+  .start-screen { padding: 26px 0 34px; }
+  .start-screen h1 { font-size: clamp(34px, 5.2vw, 62px); }
+  .start-screen .premise p { font-size: 12.5px; line-height: 1.6; }
+  .start-screen .ledger-strip { margin-top: 18px; }
+}
+
+/* ============================================================
+   V4 — SPLIT COVER: short cover → backstory page → house rules
+   ============================================================ */
+
+/* --- short cover tagline --- */
+.cover-tagline {
+  max-width: 520px;
+  margin: 24px 0 30px;
+  color: var(--dim);
+  font-size: 15px;
+  line-height: 1.7;
+  position: relative; z-index: 5;
+}
+
+/* --- backstory page --- */
+.story-screen {
+  min-height: calc(100vh - 88px);
+  flex-direction: column; justify-content: center;
+  padding: 56px 0 64px;
+  position: relative; isolation: isolate;
+}
+.story-bg {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.story-bg .graveyard { position: absolute; left: 0; right: 0; bottom: 0; width: 70%; opacity: .28; }
+.story-bg .ground-mist { opacity: .5; }
+.story-bg .neon-drip { z-index: 1; }
+.story-bg .neon-ghost { z-index: 2; opacity: .5; }
+.story-bg .neon-skull { z-index: 2; opacity: .45; }
+.story-bg .ng-story { right: 6%; top: 14%; left: auto; bottom: auto; }
+.story-bg .ns-story { right: 12%; bottom: 10%; left: auto; top: auto; }
+
+.story-content {
+  position: relative; z-index: 5;
+  width: min(720px, 100%);
+  margin: 0 auto;
+}
+.story-eyebrow {
+  color: var(--red);
+  font-size: 11px; letter-spacing: .22em;
+  margin-bottom: 14px;
+  text-shadow: 0 0 10px rgba(255, 69, 58, .3);
+}
+.story-title {
+  font: 800 clamp(28px, 4.2vw, 46px) / 1.05 'Unbounded', sans-serif;
+  letter-spacing: -.04em;
+  margin: 0 0 30px;
+  color: var(--ink);
+  text-shadow: 0 0 30px rgba(255, 138, 31, .08);
+}
+.story-screen .premise { max-width: 100%; margin: 0 0 34px; }
+.story-screen .premise p { font-size: 14.5px; line-height: 1.85; margin-bottom: 15px; }
+.story-screen .premise-hook {
+  margin-top: 20px !important; padding-top: 17px;
+  font-size: 13.5px !important;
+}
+.story-buttons { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+@media (max-width: 780px) {
+  .story-screen { padding: 36px 0 44px; }
+  .story-title { margin-bottom: 22px; }
+  .story-screen .premise p { font-size: 13.5px; line-height: 1.75; margin-bottom: 12px; }
+  .story-buttons { gap: 10px; }
+  .story-buttons .primary-btn, .story-buttons .secondary-btn { padding: 14px 22px; }
+  .cover-tagline { font-size: 14px; margin: 18px 0 24px; }
+}
+
+/* Cover is short again — restore a bolder headline and breathing room */
+.start-screen { padding: 56px 0 62px; }
+.start-screen h1 { font-size: clamp(46px, 7.2vw, 96px); }
+.start-screen > .eyebrow { margin-bottom: 22px; }
+.start-screen .ledger-strip { margin-top: 38px; }
+
+/* ============================================================
+   V5 — COVER FEATURE WALL + BACKSTORY PANEL
+   Cover: fills the empty right half with a hotel door, key, bell.
+   Backstory: frames the copy in a neon "guest record" panel.
+   ============================================================ */
+
+/* ---------- shared: little neon bat (filled silhouette) ---------- */
+.cover-bat {
+  position: absolute; width: 46px; height: 21px;
+  background: #c58cff;
+  opacity: .55;
+  filter: drop-shadow(0 0 7px rgba(197, 140, 255, .55));
+  clip-path: polygon(
+    0% 46%, 9% 26%, 21% 40%, 29% 14%, 37% 33%,
+    45% 6%, 50% 25%, 55% 6%, 63% 33%,
+    71% 14%, 79% 40%, 91% 26%, 100% 46%,
+    87% 68%, 73% 56%, 61% 71%, 50% 97%,
+    39% 71%, 27% 56%, 13% 68%
+  );
+  animation: batFlap 4.5s ease-in-out infinite;
+}
+@keyframes batFlap {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(-7px) scaleY(.72); }
+}
+
+/* ============================================================
+   COVER — right-hand wall
+   ============================================================ */
+.cover-wall {
+  position: absolute;
+  right: 2.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(190px, 21vw, 290px);
+  height: clamp(300px, 45vh, 430px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* the door */
+.cover-door {
+  position: absolute; inset: 0;
+  border: 2px solid rgba(255, 138, 31, .38);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background:
+    linear-gradient(180deg, rgba(28, 20, 34, .92), rgba(10, 8, 13, .96)),
+    repeating-linear-gradient(90deg, rgba(255,138,31,.03) 0 1px, transparent 1px 44px);
+  box-shadow:
+    0 0 34px rgba(255, 138, 31, .12),
+    inset 0 0 60px rgba(0, 0, 0, .75);
+}
+/* inner panel line */
+.cover-door::before {
+  content: ''; position: absolute; inset: 13px 13px 0 13px;
+  border: 1px solid rgba(255, 138, 31, .16);
+  border-bottom: 0; border-radius: 5px 5px 0 0;
+  background: radial-gradient(130% 62% at 50% 100%, rgba(255, 138, 31, .13), transparent 72%);
+}
+/* light leaking under the door */
+.cover-door::after {
+  content: ''; position: absolute; left: -2px; right: -2px; bottom: 0; height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8a1f 18%, #ffd39b 50%, #ff8a1f 82%, transparent);
+  box-shadow: 0 0 18px 3px rgba(255, 138, 31, .55);
+  animation: doorLeak 4s ease-in-out infinite;
+}
+@keyframes doorLeak {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+
+/* room number plate */
+.door-plate {
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+  padding: 4px 13px;
+  font: 800 13px/1 'Unbounded', sans-serif; letter-spacing: .14em;
+  color: #ff8a1f;
+  background: rgba(10, 8, 13, .95);
+  border: 1.5px solid rgba(255, 138, 31, .65);
+  border-radius: 3px;
+  text-shadow: 0 0 6px #ff8a1f, 0 0 16px rgba(255, 138, 31, .55);
+  box-shadow: 0 0 16px rgba(255, 138, 31, .3);
+  white-space: nowrap;
+}
+
+/* paneled door face — two raised panels so the black isn't a flat void */
+.door-gap {
+  position: absolute; left: 24px; right: 24px; top: 36%; bottom: 10%;
+  border: 1px solid rgba(255, 138, 31, .14);
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(255,138,31,.05), rgba(0,0,0,.18) 55%, rgba(255,138,31,.03));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .4), inset 0 2px 7px rgba(0, 0, 0, .55);
+}
+.door-gap::before {
+  content: ''; position: absolute; left: 8px; right: 8px; top: 8px; height: 41%;
+  border: 1px solid rgba(255, 138, 31, .09); border-radius: 2px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, .5);
+}
+.door-gap::after {
+  content: ''; position: absolute; left: 8px; right: 8px; bottom: 8px; height: 37%;
+  border: 1px solid rgba(255, 138, 31, .09); border-radius: 2px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, .5);
+}
+
+/* peephole */
+.door-peep {
+  position: absolute; top: 24%; left: 50%; transform: translateX(-50%);
+  width: 19px; height: 19px; border-radius: 50%;
+  border: 2px solid rgba(255, 138, 31, .55);
+  background: radial-gradient(circle at 40% 35%, #2a1f18, #07060a 70%);
+  box-shadow: 0 0 12px rgba(255, 138, 31, .28), inset 0 0 6px #000;
+}
+
+/* handle */
+.door-handle {
+  position: absolute; top: 52%; right: 20px;
+  width: 36px; height: 5px; border-radius: 3px;
+  background: linear-gradient(90deg, #6b4a22, #d9a35a, #6b4a22);
+  box-shadow: 0 0 10px rgba(255, 138, 31, .3);
+}
+.door-handle::before {
+  content: ''; position: absolute; right: -7px; top: -6px;
+  width: 15px; height: 15px; border-radius: 50%;
+  border: 1.5px solid rgba(217, 163, 90, .8);
+  box-shadow: 0 0 8px rgba(255, 138, 31, .25);
+}
+
+/* DO NOT DISTURB tag hanging off the handle */
+.dnd-tag {
+  position: absolute; top: 56%; right: 6px;
+  transform: rotate(-9deg);
+  transform-origin: top right;
+  padding: 7px 8px;
+  font: 700 7px/1.4 'DM Mono', monospace; letter-spacing: .1em;
+  text-align: center; color: #e8ff8a;
+  background: rgba(10, 8, 13, .96);
+  border: 1px solid rgba(215, 255, 63, .65);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(215, 255, 63, .3);
+}
+.dnd-tag::before {
+  content: ''; position: absolute; left: 50%; top: -9px; width: 1px; height: 9px;
+  background: rgba(215, 255, 63, .4);
+}
+
+/* key hanging above the door */
+.cover-key {
+  position: absolute; left: -78px; top: 12%;
+  width: 22px; height: 74px;
+}
+.cover-key::before {
+  content: ''; position: absolute; left: 50%; top: 0; width: 1px; height: 30px;
+  background: linear-gradient(#ff8a1f, rgba(255, 138, 31, .05));
+}
+.cover-key::after {
+  content: ''; position: absolute; left: 50%; top: 30px; transform: translateX(-50%);
+  width: 15px; height: 15px; border-radius: 50%;
+  border: 1.5px solid #d7ff3f;
+  box-shadow: 0 0 10px rgba(215, 255, 63, .35);
+}
+.cover-key i {
+  position: absolute; left: 50%; top: 43px; transform: translateX(-50%);
+  width: 2px; height: 24px; background: #d7ff3f;
+  box-shadow: 0 0 8px rgba(215, 255, 63, .4);
+}
+.cover-key i::after {
+  content: ''; position: absolute; left: 2px; bottom: 0;
+  width: 8px; height: 2px; background: #d7ff3f;
+  box-shadow: 0 -7px 0 #d7ff3f;
+}
+
+/* concierge bell at the foot of the door */
+.cover-bell {
+  position: absolute; right: -14px; bottom: -26px;
+  width: 76px; height: 46px;
+  filter: drop-shadow(0 0 12px rgba(255, 138, 31, .25));
+}
+.cover-bell::before {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 13px; height: 31px;
+  border: 1.5px solid #ff8a1f; border-bottom: 0;
+  border-radius: 44px 44px 0 0;
+  background: linear-gradient(180deg, rgba(255, 138, 31, .16), transparent 70%);
+  box-shadow: 0 0 14px rgba(255, 138, 31, .3);
+}
+.cover-bell::after {
+  content: ''; position: absolute; left: -7px; right: -7px; bottom: 0; height: 13px;
+  border: 1.5px solid #ff8a1f; border-radius: 3px;
+  box-shadow: 0 0 12px rgba(255, 138, 31, .25);
+}
+.cover-bell i {
+  position: absolute; left: 50%; top: 2px; transform: translateX(-50%);
+  width: 9px; height: 9px; border-radius: 50%;
+  border: 1.5px solid #d7ff3f;
+  box-shadow: 0 0 10px rgba(215, 255, 63, .55);
+  animation: bellGlow 3s ease-in-out infinite;
+}
+@keyframes bellGlow {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+
+/* bats + web around the wall */
+.cover-wall .cb1 { right: -18px; top: 8%; }
+.cover-wall .cb2 { right: 62%; top: -4%; transform: scale(.78); animation-delay: -1.6s; }
+.cover-wall .cb3 { right: 8%; bottom: 16%; transform: scale(.62); animation-delay: -3.1s; }
+
+.cover-web {
+  position: absolute; right: -26px; top: -34px; width: 130px; height: 130px;
+  opacity: .16; pointer-events: none;
+  background:
+    repeating-radial-gradient(circle at 100% 0, transparent 0 13px, #ff8a1f 14px 15px, transparent 16px 30px),
+    repeating-conic-gradient(from 180deg at 100% 0, transparent 0deg 22deg, #ff8a1f 23deg 24deg, transparent 25deg 46deg);
+}
+
+/* don't crowd the headline on smaller screens */
+@media (max-width: 1120px) {
+  .cover-wall { display: none; }
+}
+
+/* ============================================================
+   BACKSTORY — framed panel + side neon
+   ============================================================ */
+.story-deco {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; overflow: hidden;
+}
+.story-deco .cover-bat { opacity: .3; }
+.story-deco .sb1 { right: 9%; top: 16%; }
+.story-deco .sb2 { left: 7%; bottom: 22%; transform: scale(.7); animation-delay: -2.2s; }
+
+.story-tube {
+  position: absolute; top: 18%; width: 2px; height: 64%;
+  background: linear-gradient(180deg, transparent, #ff8a1f 12%, #ff8a1f 88%, transparent);
+  box-shadow: 0 0 14px rgba(255, 138, 31, .45);
+  opacity: .55;
+  animation: tubePulse 6s ease-in-out infinite;
+}
+.story-tube.st-left { left: 4%; }
+.story-tube.st-right { right: 4%; animation-delay: -3s; }
+@keyframes tubePulse {
+  0%, 100% { opacity: .32; }
+  50% { opacity: .72; }
+}
+
+.story-web-corner {
+  position: absolute; left: -20px; top: -20px; width: 150px; height: 150px;
+  opacity: .13;
+  background:
+    repeating-radial-gradient(circle at 0 0, transparent 0 14px, #ff8a1f 15px 16px, transparent 17px 32px),
+    repeating-conic-gradient(from 0deg at 0 0, transparent 0deg 22deg, #ff8a1f 23deg 24deg, transparent 25deg 46deg);
+}
+
+.story-spark {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: #d7ff3f; box-shadow: 0 0 10px 2px rgba(215, 255, 63, .5);
+  animation: sparkDrift 7s ease-in-out infinite;
+}
+.story-spark.ss1 { left: 12%; top: 30%; }
+.story-spark.ss2 { right: 14%; top: 62%; animation-delay: -2.4s; }
+.story-spark.ss3 { right: 22%; top: 26%; animation-delay: -4.8s; }
+@keyframes sparkDrift {
+  0%, 100% { opacity: .25; transform: translateY(0); }
+  50% { opacity: .9; transform: translateY(-9px); }
+}
+
+/* the panel itself */
+.story-panel {
+  position: relative;
+  padding: 32px 34px 30px;
+  border: 1px solid rgba(255, 138, 31, .22);
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, rgba(20, 17, 26, .82), rgba(9, 8, 12, .72));
+  box-shadow:
+    0 0 44px rgba(255, 138, 31, .07),
+    inset 0 0 70px rgba(0, 0, 0, .55);
+  backdrop-filter: blur(2px);
+}
+/* top accent line */
+.story-panel::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #ff8a1f, #d7ff3f, #ff8a1f, transparent);
+  opacity: .6;
+  box-shadow: 0 0 16px rgba(255, 138, 31, .5);
+}
+
+/* corner brackets */
+.panel-corner {
+  position: absolute; width: 15px; height: 15px;
+  border: 1.5px solid rgba(255, 138, 31, .75);
+  box-shadow: 0 0 8px rgba(255, 138, 31, .35);
+}
+.panel-corner.pc1 { left: -1px; top: -1px; border-right: 0; border-bottom: 0; }
+.panel-corner.pc2 { right: -1px; top: -1px; border-left: 0; border-bottom: 0; }
+.panel-corner.pc3 { left: -1px; bottom: -1px; border-right: 0; border-top: 0; }
+.panel-corner.pc4 { right: -1px; bottom: -1px; border-left: 0; border-top: 0; }
+
+/* numbered steps inside the panel */
+.story-screen .premise { counter-reset: step; margin: 0; }
+.story-screen .premise p:not(.premise-hook) {
+  counter-increment: step;
+  position: relative;
+  padding-left: 40px;
+}
+.story-screen .premise p:not(.premise-hook)::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute; left: 0; top: 3px;
+  font: 700 10px 'DM Mono', monospace; letter-spacing: .12em;
+  color: rgba(255, 138, 31, .62);
+  text-shadow: 0 0 8px rgba(255, 138, 31, .35);
+}
+.story-screen .premise p:not(.premise-hook)::after {
+  content: ''; position: absolute; left: 26px; top: 6px; bottom: 6px; width: 1px;
+  background: linear-gradient(180deg, rgba(255, 138, 31, .3), transparent);
+}
+
+.story-panel .story-eyebrow { margin-top: 2px; }
+.story-panel .story-title { margin-bottom: 26px; }
+.story-panel .premise-hook { margin-bottom: 0 !important; }
+
+@media (max-width: 780px) {
+  .story-panel { padding: 24px 20px 22px; }
+  .story-screen .premise p:not(.premise-hook) { padding-left: 32px; }
+  .story-screen .premise p:not(.premise-hook)::after { left: 21px; }
+  .story-tube { display: none; }
+  .story-deco .sb1, .story-deco .sb2 { display: none; }
+}
+
+/* --- panel corrections: spacing + drop the inherited left rule --- */
+.story-screen .premise { border-left: 0; padding-left: 0; }
+.story-panel { margin-bottom: 26px; }
+.story-buttons { position: relative; z-index: 5; }
+
+@media (max-width: 780px) {
+  .story-panel { margin-bottom: 20px; }
+}
+
+/* marquee bulbs running down the side tubes */
+.story-tube::before {
+  content: ''; position: absolute; left: -2px; top: 0; bottom: 0; width: 6px;
+  background: repeating-linear-gradient(180deg,
+    #ffd39b 0 2px, transparent 2px 28px);
+  box-shadow: 0 0 9px rgba(255, 138, 31, .55);
+  opacity: .75;
+  animation: bulbRun 3.6s linear infinite;
+}
+.story-tube.st-right::before { animation-delay: -1.8s; }
+@keyframes bulbRun {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 28px; }
+}
+
+/* ============================================================
+   V6 — MERGED BRIEFING PAGE
+   Story (left) + house rules (right) on one screen, so the
+   player reaches the game after a single click past the cover.
+   ============================================================ */
+
+.brief-screen { padding: 44px 0 52px; }
+
+.brief-content {
+  position: relative; z-index: 5;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.brief-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* --- left: the story, same panel language as before --- */
+.brief-story { margin-bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+/* the column is narrower now, so the headline has to step down to stay on one line */
+.brief-story .story-title { font-size: clamp(22px, 3vw, 38px); margin-bottom: 20px; }
+.brief-story .premise p { font-size: 14px; line-height: 1.88; margin-bottom: 15px; }
+.brief-story .premise-hook { margin-top: 18px !important; padding-top: 15px; font-size: 13px !important; }
+
+/* --- right: the rules card --- */
+.brief-rules {
+  position: relative;
+  padding: 26px 24px 24px;
+  border: 1px solid rgba(215, 255, 63, .22);
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(16, 20, 13, .84), rgba(9, 10, 8, .74));
+  box-shadow:
+    0 0 44px rgba(215, 255, 63, .05),
+    inset 0 0 70px rgba(0, 0, 0, .55);
+  backdrop-filter: blur(2px);
+}
+.brief-rules::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #d7ff3f, #ff8a1f, transparent);
+  opacity: .65;
+  box-shadow: 0 0 16px rgba(215, 255, 63, .35);
+}
+
+.rules-eyebrow {
+  display: block;
+  font: 700 9.5px 'DM Mono', monospace;
+  letter-spacing: .2em;
+  color: rgba(215, 255, 63, .78);
+  margin-bottom: 7px;
+}
+.rules-title {
+  font: 800 21px/1.1 'Unbounded', sans-serif;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: 0 0 18px;
+  text-shadow: 0 0 20px rgba(215, 255, 63, .12);
+}
+
+.rule-hero {
+  border-left: 2px solid rgba(255, 69, 58, .65);
+  padding: 2px 0 2px 12px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, rgba(255, 69, 58, .055), transparent 72%);
+}
+.rule-hero-label {
+  display: block;
+  font: 700 9px 'Unbounded', sans-serif;
+  letter-spacing: .18em;
+  color: var(--red);
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(255, 69, 58, .3);
+}
+.rule-hero-text {
+  margin: 0;
+  font-size: 12.5px; line-height: 1.68;
+  color: rgba(233, 229, 221, .8);
+}
+
+.goal-line {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px solid rgba(215, 255, 63, .28);
+  background: rgba(215, 255, 63, .05);
+  margin-bottom: 16px;
+}
+.goal-line .goal-label { font-size: 9px; }
+.goal-line .goal-text { font-size: 12px; line-height: 1.6; margin: 0; }
+
+/* four mechanics — compact cards, same language as the game's cards */
+.rule-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.rule-card {
+  position: relative; overflow: hidden;
+  padding: 14px 14px 13px;
+  border: 1px solid rgba(255, 255, 255, .075);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .028), rgba(255, 255, 255, .006));
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+.rule-card::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 138, 31, .55), transparent);
+  opacity: .45;
+}
+.rule-card:hover {
+  border-color: rgba(255, 138, 31, .3);
+  box-shadow: 0 0 16px rgba(255, 138, 31, .09);
+  transform: translateY(-1px);
+}
+/* scoped: .rule-icon is also used by the in-game rule banner */
+.brief-rules .rule-icon {
+  font-size: 18px; line-height: 1;
+  color: var(--halloween);
+  margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(255, 138, 31, .5);
+  animation: iconPulse 3.4s ease-in-out infinite;
+}
+.rule-card:nth-child(2) .rule-icon { animation-delay: -.85s; }
+.rule-card:nth-child(3) .rule-icon { animation-delay: -1.7s; }
+.rule-card:nth-child(4) .rule-icon { animation-delay: -2.55s; }
+.rule-card h4 {
+  font: 700 10px/1.35 'Unbounded', sans-serif;
+  letter-spacing: .05em;
+  color: var(--ink);
+  margin: 0 0 5px;
+}
+.rule-body {
+  font-size: 11.5px; line-height: 1.58;
+  color: rgba(233, 229, 221, .7);
+}
+.rule-body em {
+  font-style: normal;
+  color: rgba(233, 229, 221, .92);
+}
+
+/* the SAFE / RISKY / DANGER stamps, shown as the real pills */
+.stamp-row {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin-top: 8px;
+}
+.stamp-row .badge-demo {
+  font-size: 8.5px;
+  padding: 2.5px 6px;
+  letter-spacing: .07em;
+  background: rgba(255, 255, 255, .025);
+}
+.stamp-row .badge-demo.rulebreak { background: rgba(255, 69, 58, .14); }
+
+.brief-buttons {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  margin-top: 24px;
+  position: relative; z-index: 5;
+}
+
+/* --- narrower desktop: give the story more room --- */
+@media (max-width: 1080px) {
+  .brief-cols { grid-template-columns: 1fr; gap: 18px; }
+  .brief-story .premise p { font-size: 13px; }
+  .brief-rules { padding: 22px 20px 20px; }
+}
+
+@media (max-width: 780px) {
+  .brief-screen { padding: 30px 0 38px; }
+  .brief-story { padding: 22px 18px 20px; }
+  .brief-story .story-title { font-size: clamp(24px, 7vw, 34px); margin-bottom: 18px; }
+  .brief-story .premise p { font-size: 12.5px; line-height: 1.7; margin-bottom: 11px; }
+  .brief-story .premise p:not(.premise-hook) { padding-left: 30px; }
+  .brief-story .premise p:not(.premise-hook)::after { left: 19px; }
+  .brief-rules { padding: 20px 16px 18px; }
+  .rules-title { font-size: 17px; margin-bottom: 15px; }
+  .rule-cards { gap: 8px; }
+  .rule-card { padding: 11px 10px 10px; }
+  .rule-icon { font-size: 15px; margin-bottom: 6px; }
+  .rule-card h4 { font-size: 8.5px; }
+  .rule-body { font-size: 10.5px; line-height: 1.5; }
+  .stamp-row .badge-demo { font-size: 7px; padding: 1.5px 4px; }
+  .brief-buttons { gap: 10px; margin-top: 20px; }
+  .brief-buttons .primary-btn, .brief-buttons .secondary-btn { padding: 14px 22px; }
+}
+
+/* --- short viewports: shave the padding so the CTA stays visible --- */
+@media (max-height: 780px) and (min-width: 1081px) {
+  .brief-screen { padding: 30px 0 34px; }
+  .brief-story { padding: 24px 26px 22px; }
+  .brief-story .story-title { font-size: clamp(24px, 3vw, 34px); margin-bottom: 16px; }
+  .brief-story .premise p { font-size: 13px; line-height: 1.78; margin-bottom: 12px; }
+  .brief-story .premise-hook { margin-top: 12px !important; padding-top: 11px; }
+  .brief-buttons { margin-top: 18px; }
+}
+
+/* ============================================================
+   V7 — BRIEFING -> GAME TRANSITION
+   The page lets go under the click, a curtain rises carrying the
+   one line the player has to remember, then it lifts on scene 1.
+   ============================================================ */
+
+/* the briefing page releases */
+.brief-screen.leaving {
+  animation: briefLeave .3s ease-in forwards;
+  pointer-events: none;
+}
+@keyframes briefLeave {
+  to { opacity: 0; transform: scale(.986) translateY(-10px); filter: blur(2px); }
+}
+
+/* the curtain itself */
+.intro-splash { transition: opacity .38s ease, visibility .38s; }
+.intro-splash.active.out { opacity: 0; }
+.intro-splash.active.out .splash-content { transform: scale(1.045); transition: transform .38s ease; }
+
+/* faint 404 ghost behind the line */
+.splash-404 {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font: 800 clamp(200px, 32vw, 440px)/1 'Unbounded', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 138, 31, .13);
+  pointer-events: none; user-select: none;
+  animation: ghostDrift 7s ease-in-out infinite;
+}
+@keyframes ghostDrift {
+  0%, 100% { opacity: .7; }
+  50% { opacity: 1; }
+}
+
+.splash-content { gap: 0; padding: 0 24px; }
+
+.splash-icon {
+  font-size: 34px;
+  color: var(--halloween);
+  text-shadow: 0 0 24px rgba(255, 138, 31, .6);
+}
+
+.splash-eyebrow {
+  font: 700 10px 'DM Mono', monospace;
+  letter-spacing: .44em;
+  text-indent: .44em;
+  color: var(--red);
+  margin: 20px 0 13px;
+  text-shadow: 0 0 16px rgba(255, 69, 58, .55);
+}
+
+.splash-reminder {
+  font: 500 clamp(19px, 2.5vw, 31px)/1.38 'Unbounded', sans-serif;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  text-align: center;
+  max-width: 620px;
+  margin: 0 0 34px;
+  text-shadow: 0 0 46px rgba(255, 138, 31, .2);
+}
+.splash-reminder strong {
+  font-weight: 800;
+  color: var(--acid);
+  text-shadow: 0 0 26px rgba(215, 255, 63, .35);
+}
+
+.splash-bar {
+  width: 230px; height: 2px;
+  background: rgba(255, 255, 255, .07);
+  border-radius: 1px;
+}
+
+.splash-text {
+  font: 700 10px 'DM Mono', monospace;
+  letter-spacing: .34em;
+  text-indent: .34em;
+  color: rgba(233, 229, 221, .56);
+  margin-top: 15px;
+  text-shadow: none;
+}
+
+/* staggered reveal — replays every time .active is re-applied */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.intro-splash.active .splash-icon,
+.intro-splash.active .splash-eyebrow,
+.intro-splash.active .splash-reminder,
+.intro-splash.active .splash-bar,
+.intro-splash.active .splash-text {
+  animation: riseIn .62s cubic-bezier(.2, .8, .2, 1) both;
+}
+.intro-splash.active .splash-icon     { animation-delay: .05s; }
+.intro-splash.active .splash-eyebrow  { animation-delay: .17s; }
+.intro-splash.active .splash-reminder { animation-delay: .30s; }
+.intro-splash.active .splash-bar      { animation-delay: .62s; }
+.intro-splash.active .splash-text     { animation-delay: .74s; }
+
+/* the bar starts filling once it has appeared */
+.intro-splash.active .splash-bar span {
+  animation: splashBarFill 1.25s cubic-bezier(.3, .8, .4, 1) .55s both;
+}
+
+@media (max-width: 780px) {
+  .splash-reminder { font-size: 19px; max-width: 340px; margin-bottom: 28px; }
+  .splash-eyebrow { letter-spacing: .34em; text-indent: .34em; }
+  .splash-404 { font-size: 220px; }
+}
